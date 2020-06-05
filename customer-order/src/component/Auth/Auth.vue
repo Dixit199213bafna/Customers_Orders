@@ -4,14 +4,14 @@
       {{error}}
     </div>
     <div class="form-group">
-      <label>Email address</label>
-      <input v-model="email" type="email" class="form-control"  placeholder="Enter email">
+      <label>{{$t("auth.email")}}</label>
+      <input v-model="email" type="email" class="form-control"  :placeholder="$t('auth.email')">
     </div>
     <div class="form-group">
-      <label>Password</label>
-      <input v-model="password" type="password" class="form-control" placeholder="Password">
+      <label>{{$t("auth.password")}}</label>
+      <input v-model="password" type="password" class="form-control" :placeholder="$t('auth.password')">
     </div>
-    <button type="submit" class="btn btn-primary" @click.prevent="onSignUp" v-if="singUp">Sing Up</button>
+    <button type="submit" class="btn btn-primary" @click.prevent="onSignUp" v-if="singUp">{{$t('auth.signUp')}}</button>
     <button type="submit" class="btn btn-primary" @click.prevent="onSignIn" v-if="!singUp">Sing In</button>
     <button type="submit" class="btn btn-primary" @click.prevent="singUp = !singUp">Switch to Sign In</button>
   </form>
@@ -65,7 +65,7 @@
 <style>
   form.login {
     margin: 0 auto;
-    width: 300px;
+    width: 500px;
     padding: 30px;
   }
 </style>

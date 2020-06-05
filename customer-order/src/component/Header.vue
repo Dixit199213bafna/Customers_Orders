@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Customer And Order Details</a>
+    <a class="navbar-brand" href="#">{{$t("title")}}</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -14,8 +14,8 @@
               Language
             </a>
             <ul class="dropdown-menu" :class="{displayblock : isDropDownOpen}">
-              <li><a class="dropdown-item" @click="isDropDownOpen = !isDropDownOpen">English</a></li>
-              <li><a class="dropdown-item" @click="isDropDownOpen = !isDropDownOpen">Dutch</a></li>
+              <li><a class="dropdown-item" @click.prevent="changeLang('en')">English</a></li>
+              <li><a class="dropdown-item" @click.prevent="changeLang('du')">Dutch</a></li>
             </ul>
           </li>
         </ul>
@@ -52,6 +52,10 @@
       logOut() {
         localStorage.removeItem('token');
         this.setTkn(null);
+      },
+      changeLang(lang) {
+        this.isDropDownOpen = !this.isDropDownOpen
+        this.$root.$i18n.locale = lang;
       }
     }
   }

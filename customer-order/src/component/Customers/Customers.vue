@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{title | uppercase}}</h1>
+    <h1>{{$t("customers.title") | uppercase}}</h1>
     <div class="customerTable">
     <table class="table table-bordered" v-if="customers.length > 0">
       <thead class="thead-dark">

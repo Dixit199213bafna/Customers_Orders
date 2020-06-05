@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{title | uppercase}}</h1>
+    <h1>{{$t("orders.title") | uppercase}}</h1>
     <div class="orderTable">
     <table class="table table-bordered">
       <thead class="thead-dark">
