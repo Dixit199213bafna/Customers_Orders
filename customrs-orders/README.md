@@ -1,6 +1,6 @@
-# customrs-orders
+# customers-orders
 
-> A Vue.js project
+> A Vue.js project that showcases components, mixins, filters, stores, i18n , routing, authentication and unit testing
 
 ## Build Setup
 
@@ -10,15 +10,6 @@ npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
 
 # run all tests
 npm test
