@@ -14,9 +14,9 @@
              class="form-control"
              :placeholder="$t('auth.password')">
     </div>
-    <button type="submit" class="btn btn-primary"
+    <button id="signUpBtn" type="submit" class="btn btn-primary"
             @click.prevent="onSignUp" v-if="singUp">{{$t('auth.signUp')}}</button>
-    <button type="submit" class="btn btn-primary"
+    <button id="signInBtn" type="submit" class="btn btn-primary"
             @click.prevent="onSignIn" v-if="!singUp">Sing In</button>
     <button type="submit" class="btn btn-primary"
             @click.prevent="singUp = !singUp">Switch to Sign In</button>

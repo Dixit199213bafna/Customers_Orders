@@ -14,7 +14,7 @@ const mutations = {
 };
 
 const actions = {
-  setCustomers: ({ commit }, orders) => {
+  setOrders: ({ commit }, orders) => {
     commit('SET_ORDERS', orders);
   },
 };

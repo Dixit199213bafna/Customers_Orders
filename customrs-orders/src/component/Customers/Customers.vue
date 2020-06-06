@@ -27,9 +27,8 @@
   </div>
   </div>
 </template>
-<script>
+<script>/* eslint import/newline-after-import: "off" */
 import { mapActions, mapGetters } from 'vuex';
-
 export default {
   name: 'appCustomers',
   data() {

@@ -29,7 +29,9 @@
   </div>
 </template>
 <script>
+
 import { mapActions, mapGetters } from 'vuex';
+
 import OrderDetail from './OrderDetail/OrderDetail';
 
 export default {

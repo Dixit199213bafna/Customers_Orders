@@ -16,6 +16,7 @@
     </div>
 </template>
 <script>
+
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
@@ -32,14 +33,9 @@ export default {
     }),
   },
   watch: {
-    id(newVal, oldVal) {
-      if (!oldVal || newVal !== oldVal) {
-        this.getOrderDetail(this.id);
-      }
+    id() {
+      this.getOrderDetail(this.id);
     },
-  },
-  mounted() {
-    this.getOrderDetail(this.id);
   },
 };
 </script>

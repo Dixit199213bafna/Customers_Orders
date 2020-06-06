@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">{{$t("title")}}</a>
+    <a class="navbar-brand" href="#" id="title">{{$t("title")}}</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -17,14 +17,16 @@
               Language
             </a>
             <ul class="dropdown-menu" :class="{displayblock : isDropDownOpen}">
-              <li><a class="dropdown-item" @click.prevent="changeLang('en')">English</a></li>
-              <li><a class="dropdown-item" @click.prevent="changeLang('du')">Dutch</a></li>
+              <li><a id="enLang" class="dropdown-item"
+                     @click.prevent="changeLang('en')">English</a></li>
+              <li><a id="duLang" class="dropdown-item"
+                     @click.prevent="changeLang('du')">Dutch</a></li>
             </ul>
           </li>
         </ul>
       </form>
       <ul class="navbar-nav">
-        <li v-if="token"  active-class="nav-item active"
+        <li id="logoutBtn" v-if="token"  active-class="nav-item active"
             @click.prevent="logOut" ><a class="nav-link">Log Out</a> </li>
         <router-link v-if="!token" to="/" tag="li" name="login"
                      active-class="nav-item active"><a class="nav-link" >Log In</a> </router-link>
@@ -61,7 +63,7 @@ export default {
     },
     changeLang(lang) {
       this.isDropDownOpen = !this.isDropDownOpen;
-      this.$root.$i18n.locale = lang;
+      this.$i18n.locale = lang;
     },
   },
 };
