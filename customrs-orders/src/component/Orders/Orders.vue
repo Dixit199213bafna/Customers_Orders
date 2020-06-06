@@ -14,7 +14,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="order in orders" :key="order.order.customerId">
+      <tr v-for="order in orders" :key="order.order.id">
         <th scope="row" @click.prevent="orderId = order.order.id">{{order.order.id}}</th>
         <td>{{order.order.customerId}}</td>
         <td>{{order.order.employeeId}}</td>

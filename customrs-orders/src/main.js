@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import VueResource from 'vue-resource';
 import VueI18n from 'vue-i18n';
 
 import App from './App';
@@ -22,7 +21,6 @@ const i18n = new VueI18n({
   },
 });
 
-Vue.use(VueResource);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

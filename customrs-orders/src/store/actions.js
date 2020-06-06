@@ -1,56 +1,51 @@
-import Vue from 'vue';
+import axios from 'axios';
 
 export const loadCustomer = ({ commit }) => {
-  Vue.http.get('http://northwind.netcore.io/customers?format=json')
-    .then(response => response.json())
-    .then((data) => {
-      if (data) {
-        commit('SET_CUSTOMERS', data.customers);
+  axios.get('http://northwind.netcore.io/customers?format=json')
+    .then((response) => {
+      if (response.data) {
+        commit('SET_CUSTOMERS', response.data.customers);
       }
     });
 };
 
 export const loadOrders = ({ commit }) => {
-  Vue.http.get('http://northwind.netcore.io/orders?format=json')
-    .then(response => response.json())
-    .then((data) => {
-      if (data) {
-        commit('SET_ORDERS', data.results);
+  axios.get('http://northwind.netcore.io/orders?format=json')
+    .then((response) => {
+      if (response.data) {
+        commit('SET_ORDERS', response.data.results);
       }
     });
 };
 
 export const signIn = ({ commit }, userDetails) => {
-  Vue.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBxFgCa7TeIBRri0g0KI5psi2oN_vsHrNc', userDetails)
-    .then(response => response.json())
-    .then((data) => {
-      if (data) {
-        commit('SET_TOKEN', data.idToken);
-        window.localStorage.setItem('token', data.idToken);
+  axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBxFgCa7TeIBRri0g0KI5psi2oN_vsHrNc', userDetails)
+    .then((response) => {
+      if (response.data) {
+        commit('SET_TOKEN', response.data.idToken);
+        window.localStorage.setItem('token', response.data.idToken);
       }
     }).catch((e) => {
-      commit('SET_ERROR', e.body.error.message);
+      commit('SET_ERROR', e.response.data.error.message);
     });
 };
 
 export const signUp = ({ commit }, userDetails) => {
-  Vue.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBxFgCa7TeIBRri0g0KI5psi2oN_vsHrNc', userDetails)
-    .then(response => response.json())
-    .then((data) => {
-      if (data) {
-        commit('SET_ORDERS', data.results);
+  axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBxFgCa7TeIBRri0g0KI5psi2oN_vsHrNc', userDetails)
+    .then((response) => {
+      if (response.data) {
+        commit('SET_ORDERS', response.data.results);
       }
     }).catch((e) => {
-      commit('SET_ERROR', e.body.error.message);
+      commit('SET_ERROR', e.response.data.error.message);
     });
 };
 
 export const fetchOrderDetail = ({ commit }, id) => {
-  Vue.http.get(`http://northwind.netcore.io/query/orders?Id=${id}&include=Total&format=json`)
-    .then(response => response.json())
-    .then((data) => {
-      if (data) {
-        commit('SET_ORDER_DETAIL', data.results[0]);
+  axios.get(`http://northwind.netcore.io/query/orders?Id=${id}&include=Total&format=json`)
+    .then((response) => {
+      if (response.data) {
+        commit('SET_ORDER_DETAIL', response.data.results[0]);
       }
     });
 };
