@@ -12,6 +12,7 @@ export default new Router({
   routes: [
     {
       path: '/customers',
+      name: 'customers',
       component: Customers,
       beforeEnter(to, from, next) {
         if (store.state.auth.token) {
@@ -23,6 +24,7 @@ export default new Router({
     },
     {
       path: '/orders',
+      name: 'orders',
       component: Orders,
       beforeEnter(to, from, next) {
         if (store.state.auth.token) {
@@ -34,8 +36,9 @@ export default new Router({
     },
     {
       path: '/',
+      name: 'auth',
       component: Auth,
     },
-    { path: '*', redirect: '/' },
+    { path: '*', name: 'redirect', redirect: '/' },
   ],
 });

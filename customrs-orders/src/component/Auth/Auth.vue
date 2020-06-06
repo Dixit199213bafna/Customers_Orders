@@ -27,6 +27,7 @@ import { mapActions, mapGetters } from 'vuex';
 import tokenMixin from '../../mixins/tokenMixin';
 
 export default {
+  name: 'appAuth',
   mixins: [tokenMixin],
   data() {
     return {
@@ -63,8 +64,8 @@ export default {
     },
   },
   mounted() {
-    if (localStorage.getItem('token')) {
-      this.setTkn(localStorage.getItem('token'));
+    if (window.localStorage.getItem('token')) {
+      this.setTkn(window.localStorage.getItem('token'));
     }
   },
 };

@@ -26,7 +26,7 @@ export const signIn = ({ commit }, userDetails) => {
     .then((data) => {
       if (data) {
         commit('SET_TOKEN', data.idToken);
-        localStorage.setItem('token', data.idToken);
+        window.localStorage.setItem('token', data.idToken);
       }
     }).catch((e) => {
       commit('SET_ERROR', e.body.error.message);
@@ -40,6 +40,8 @@ export const signUp = ({ commit }, userDetails) => {
       if (data) {
         commit('SET_ORDERS', data.results);
       }
+    }).catch((e) => {
+      commit('SET_ERROR', e.body.error.message);
     });
 };
 

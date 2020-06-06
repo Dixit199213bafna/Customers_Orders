@@ -33,6 +33,7 @@ import { mapActions, mapGetters } from 'vuex';
 import OrderDetail from './OrderDetail/OrderDetail';
 
 export default {
+  name: 'appOrders',
   data() {
     return {
       title: 'orders',

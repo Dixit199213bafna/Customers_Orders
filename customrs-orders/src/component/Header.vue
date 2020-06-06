@@ -4,9 +4,9 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <router-link v-if="token" tag="li" to="/customers"
+        <router-link v-if="token" tag="li" to="/customers" name="customers"
                      active-class="nav-item active"><a class="nav-link">Customer</a></router-link>
-        <router-link v-if="token" tag="li" to="/orders"
+        <router-link v-if="token" tag="li" to="/orders" name="orders"
                      active-class="nav-item active"><a class="nav-link">Orders</a></router-link>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -26,7 +26,7 @@
       <ul class="navbar-nav">
         <li v-if="token"  active-class="nav-item active"
             @click.prevent="logOut" ><a class="nav-link">Log Out</a> </li>
-        <router-link v-if="!token" to="/" tag="li"
+        <router-link v-if="!token" to="/" tag="li" name="login"
                      active-class="nav-item active"><a class="nav-link" >Log In</a> </router-link>
       </ul>
     </div>
@@ -37,6 +37,7 @@ import { mapActions } from 'vuex';
 import tokenMixin from '../mixins/tokenMixin';
 
 export default {
+  name: 'appHeader',
   mixins: [tokenMixin],
   data() {
     return {
@@ -55,7 +56,7 @@ export default {
       setTkn: 'setToken',
     }),
     logOut() {
-      localStorage.removeItem('token');
+      window.localStorage.removeItem('token');
       this.setTkn(null);
     },
     changeLang(lang) {

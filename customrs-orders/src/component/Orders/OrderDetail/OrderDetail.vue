@@ -19,6 +19,7 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
+  name: 'appOrderDetail',
   props: ['id'],
   methods: {
     ...mapActions({
