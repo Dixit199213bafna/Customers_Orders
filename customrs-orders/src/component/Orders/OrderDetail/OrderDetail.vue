@@ -37,5 +37,8 @@ export default {
       this.getOrderDetail(this.id);
     },
   },
+  mounted() {
+    this.getOrderDetail(this.id);
+  },
 };
 </script>
