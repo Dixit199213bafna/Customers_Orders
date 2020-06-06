@@ -2,6 +2,8 @@
 
 > A Vue.js project that showcases components, mixins, filters, stores, i18n , routing, authentication and unit testing
 
+> To use application sign up and then sign in.
+
 ## Build Setup
 
 ``` bash
