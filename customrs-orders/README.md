@@ -4,15 +4,16 @@
 
 > To use application sign up and then sign in.
 
+## To start application
+```$xslt
+# git clone https://github.com/Dixit199213bafna/Customers_Orders.git
+# cd customrs-orders/
+# npm install
+# npm run dev
+```
 ## Build Setup
 
 ``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
 # run all tests
 npm test
 ```
