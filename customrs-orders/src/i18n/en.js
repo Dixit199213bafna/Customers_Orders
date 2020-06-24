@@ -12,4 +12,7 @@ export default {
   orders: {
     title: 'Orders',
   },
+  todo: {
+    title: 'To Do App',
+  },
 };

@@ -11,4 +11,7 @@ export default {
   orders: {
     title: 'Bestellingen',
   },
+  todo: {
+    title: 'APP doen',
+  },
 };

@@ -1,12 +1,12 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Auth from '../../../src/component/Auth/Auth';
 import VueRouter from 'vue-router';
-import Vue from "vue";
-import VueI18n from "vue-i18n";
-import engLishLang from "../../../src/i18n/en";
-import dutchLang from "../../../src/i18n/du";
-import store from "../../../src/store/store";
-import Header from "../../../src/component/Header";
+import Vue from 'vue';
+import VueI18n from 'vue-i18n';
+import engLishLang from '../../../src/i18n/en';
+import dutchLang from '../../../src/i18n/du';
+import store from '../../../src/store/store';
+import Header from '../../../src/component/Header';
 
 const localVue = createLocalVue();
 localVue.use(VueRouter);
@@ -32,7 +32,7 @@ describe('Auth', () => {
       i18n,
       methods: {
         setTkn: setTknStub,
-      }
+      },
     });
     expect(setTknStub).toBeCalledWith('new-token');
     localStorage.removeItem('token');
@@ -51,13 +51,13 @@ describe('Auth', () => {
         return {
           password: '11111',
           email: 'd@gmail.com',
-          singUp: true
-        }
-      }
+          singUp: true,
+        };
+      },
     });
     const signUpBtn = wrapper.find('#signUpBtn');
     signUpBtn.trigger('click');
-    expect(signUpStub).toBeCalledWith({email: 'd@gmail.com',password: '11111'});
+    expect(signUpStub).toBeCalledWith({ email: 'd@gmail.com', password: '11111' });
   });
 
   it('sign In Method', () => {
@@ -73,23 +73,23 @@ describe('Auth', () => {
         return {
           password: '11111',
           email: 'd@gmail.com',
-          singUp: false
-        }
-      }
+          singUp: false,
+        };
+      },
     });
     const signInBtn = wrapper.find('#signInBtn');
     signInBtn.trigger('click');
-    expect(signInStub).toBeCalledWith({email: 'd@gmail.com',password: '11111'});
+    expect(signInStub).toBeCalledWith({ email: 'd@gmail.com', password: '11111' });
   });
 
   it('should move to current page if refreshed and logged in', () => {
     const push = jest.fn();
     const $router = {
       push: jest.fn(),
-      history:{
-        _startLocation: '/orders'
-      }
-    }
+      history: {
+        _startLocation: '/orders',
+      },
+    };
     const wrapper = shallowMount(Auth, {
       localVue,
       store,
@@ -98,23 +98,23 @@ describe('Auth', () => {
       data() {
         return {
           token: null,
-        }
-      }
+        };
+      },
     });
-    wrapper.setData({ token: 'X'});
+    wrapper.setData({ token: 'X' });
     wrapper.vm.$nextTick(() => {
       expect(push).toHaveBeenCalledWith('/orders');
-    })
+    });
   });
 
   it('should move to current page if refreshed and current page is blank', () => {
     const push = jest.fn();
     const $router = {
       push: jest.fn(),
-      history:{
-        _startLocation: null
-      }
-    }
+      history: {
+        _startLocation: null,
+      },
+    };
     const wrapper = shallowMount(Auth, {
       localVue,
       store,
@@ -123,12 +123,12 @@ describe('Auth', () => {
       data() {
         return {
           token: null,
-        }
-      }
+        };
+      },
     });
-    wrapper.setData({ token: 'X'});
+    wrapper.setData({ token: 'X' });
     wrapper.vm.$nextTick(() => {
       expect(push).toHaveBeenCalledWith('/customers');
-    })
+    });
   });
 });

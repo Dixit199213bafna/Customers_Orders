@@ -4,6 +4,7 @@ import Customers from '../component/Customers/Customers';
 import Orders from '../component/Orders/Orders';
 import Auth from '../component/Auth/Auth';
 import store from '../store/store';
+import ToDoApp from '../component/ToDoApp/ToDoApp';
 
 Vue.use(Router);
 
@@ -26,6 +27,18 @@ export default new Router({
       path: '/orders',
       name: 'orders',
       component: Orders,
+      beforeEnter(to, from, next) {
+        if (store.state.auth.token) {
+          next();
+        } else {
+          next('/');
+        }
+      },
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: ToDoApp,
       beforeEnter(to, from, next) {
         if (store.state.auth.token) {
           next();

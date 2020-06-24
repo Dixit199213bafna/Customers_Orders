@@ -1,11 +1,11 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import Orders from "../../../src/component/Orders/Orders";
+import Orders from '../../../src/component/Orders/Orders';
 import VueRouter from 'vue-router';
-import Vue from "vue";
-import VueI18n from "vue-i18n";
-import engLishLang from "../../../src/i18n/en";
-import dutchLang from "../../../src/i18n/du";
-import store from "../../../src/store/store";
+import Vue from 'vue';
+import VueI18n from 'vue-i18n';
+import engLishLang from '../../../src/i18n/en';
+import dutchLang from '../../../src/i18n/du';
+import store from '../../../src/store/store';
 
 const localVue = createLocalVue();
 localVue.use(VueRouter);
@@ -30,7 +30,7 @@ describe('Orders', () => {
       i18n,
       methods: {
         fetchOrders: fetchOrdersStub,
-      }
+      },
     });
     expect(fetchOrdersStub).toHaveBeenCalled();
     expect(wrapper.vm.$data.title).toBe('orders');

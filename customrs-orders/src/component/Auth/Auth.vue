@@ -45,7 +45,7 @@ export default {
     token(newValue, oldValue) {
       if (!oldValue && newValue) {
         /* eslint no-underscore-dangle: 0 */
-        const path = this.$router.history._startLocation && this.$router.history._startLocation !== '/' ? this.$router.history._startLocation : '/customers';
+        const path = this.$router.history._startLocation && this.$router.history._startLocation !== '/' ? this.$router.history._startLocation : '/todo';
         this.$router.push(path);
       }
     },

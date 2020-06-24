@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vue from 'vue';
-import Vuex from 'vuex'
+import Vuex from 'vuex';
 import VueI18n from 'vue-i18n';
 import Header from '../../../src/component/Header';
 import engLishLang from '../../../src/i18n/en';
@@ -46,7 +46,7 @@ describe('Header', () => {
     const push = jest.fn();
     const $router = {
       push: jest.fn(),
-    }
+    };
     wrapper = shallowMount(Header, {
       localVue,
       store,
@@ -54,24 +54,24 @@ describe('Header', () => {
       $router,
       data() {
         return {
-          token: '123'
-        }
-      }
+          token: '123',
+        };
+      },
     });
-    wrapper.setData({ token: null});
+    wrapper.setData({ token: null });
     wrapper.vm.$nextTick(() => {
       expect(push).toHaveBeenCalledWith('/');
-    })
+    });
   });
 
   it('click on logout to logout', () => {
     const store = new Vuex.Store({
-        getters: {
-          getToken() {
-            return 'access-token'
-          }
-        }
-    })
+      getters: {
+        getToken() {
+          return 'access-token';
+        },
+      },
+    });
     const setTknStub = jest.fn();
     wrapper = shallowMount(Header, {
       localVue,

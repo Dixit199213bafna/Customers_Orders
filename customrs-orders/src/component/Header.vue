@@ -4,6 +4,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <router-link v-if="token" tag="li" to="/todo" name="todo"
+                     active-class="nav-item active"><a class="nav-link">To Do</a></router-link>
         <router-link v-if="token" tag="li" to="/customers" name="customers"
                      active-class="nav-item active"><a class="nav-link">Customer</a></router-link>
         <router-link v-if="token" tag="li" to="/orders" name="orders"
